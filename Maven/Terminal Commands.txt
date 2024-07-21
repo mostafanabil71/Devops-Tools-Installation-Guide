@@ -1,0 +1,21 @@
+$ java -version
+$ sudo apt update
+$ sudo apt install openjdk-11-jdk -y
+$ wget https://dlcdn.apache.org/maven/maven-3/3.9.8/binaries/apache-maven-3.9.8-bin.tar.gz
+$ sudo tar xzf apache-maven-3.9.8-bin.tar.gz -C /opt 
+$ sudo ln -s /opt/apache-maven-3.8.6 /opt/maven
+
+--------------------------------------------
+Add below lines to /etc/profile.d/maven.sh 
+--------------------------------------------
+export JAVA_HOME=/usr/lib/jvm/java-11-openjdk-amd64
+export M2_HOME=/opt/maven
+export MAVEN_HOME=/opt/maven
+export PATH=${M2_HOME}/bin:${PATH}
+--------------------------------------------
+
+$ sudo vi /etc/profile.d/maven.sh 
+$ mvn -version
+$ rm -f apache-maven-3.9.8-bin.tar.gz 
+
+
